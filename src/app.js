@@ -12,6 +12,7 @@ let createBtnElement = document.getElementById('add-movie-button');
 navigationElement.addEventListener('click', onNavigate);
 createBtnElement.addEventListener('click', onNavigate);
 
+// This object holds relation between href routes and function which reveals the wanted page
 let routes = {
     '/': homePage,
     '/login': loginPage,
@@ -22,6 +23,7 @@ let routes = {
     '/edit': editPage,
 };
 
+// Function which controls the buttons of the navigation
 function onNavigate(event) {
     if (event.target.tagName == 'A' && event.target.href) {
         event.preventDefault();
