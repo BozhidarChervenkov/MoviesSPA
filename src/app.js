@@ -4,6 +4,7 @@ import { createPage } from './pages/create.js';
 import { registerPage } from './pages/register.js';
 import { detailsPage } from './pages/details.js';
 import { editPage } from './pages/edit.js';
+import { updateNav } from './utils.js';
 
 let navigationElement = document.getElementById('navigation');
 let createBtnElement = document.getElementById('add-movie-button');
@@ -24,7 +25,7 @@ let routes = {
 function onNavigate(event) {
     if (event.target.tagName == 'A' && event.target.href) {
         event.preventDefault();
-        
+
         const url = new URL(event.target.href);
         const view = routes[url.pathname];
 
@@ -35,8 +36,10 @@ function onNavigate(event) {
 }
 
 function logout() {
-
+    localStorage.removeItem('user');
+    updateNav();
 }
 
 // Start application at main page
+updateNav();
 homePage();
