@@ -1,7 +1,16 @@
 import { showView, spinner } from '../utils.js';
+import { detailsPage } from './details.js';
 
 let section = document.getElementById('home-page');
 let movieListDivElement = section.querySelector('#movie-list');
+movieListDivElement.addEventListener('click', (event) => {
+    if (event.target.tagName == 'BUTTON') {
+        event.preventDefault();
+
+        const id = event.target.dataset.id;
+        detailsPage(id);
+    }
+});
 
 export function homePage() {
     showView(section);
@@ -29,9 +38,7 @@ function createMoviePreview(movie) {
         <h4 class="card-title">${movie.title}</h4>
     </div>
     <div class="card-footer">
-        <a href="/details/${movie._id}">
-            <button data-id="${movie._id}" type="button" class="btn btn-info">Details</button>
-        </a>
+        <button data-id="${movie._id}" type="button" class="btn btn-info">Details</button>
     </div>`;
 
     return element;

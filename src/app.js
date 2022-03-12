@@ -2,8 +2,6 @@ import { homePage } from './pages/home.js';
 import { loginPage } from './pages/login.js';
 import { createPage } from './pages/create.js';
 import { registerPage } from './pages/register.js';
-import { detailsPage } from './pages/details.js';
-import { editPage } from './pages/edit.js';
 import { updateNav } from './utils.js';
 
 let navigationElement = document.getElementById('navigation');
@@ -19,8 +17,6 @@ let routes = {
     '/logout': logout,
     '/register': registerPage,
     '/create': createPage,
-    '/details': detailsPage,
-    '/edit': editPage,
 };
 
 // Function which controls the buttons of the navigation

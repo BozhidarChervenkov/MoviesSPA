@@ -1,4 +1,4 @@
-import { showView, updateNav } from '../utils.js';
+import { showView } from '../utils.js';
 import { homePage } from './home.js';
 
 let section = document.getElementById('add-movie');
@@ -26,7 +26,7 @@ async function onSubmit(event) {
 
 async function createMovie(title, description, imageUrl) {
     try {
-        if (title == undefined || description == undefined || imageUrl == undefined) {
+        if (title == '' || description == '' || imageUrl == '') {
             throw new Error('Invalid input!');
         }
 
